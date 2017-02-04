@@ -7,38 +7,46 @@ namespace CeViche_Backend.Controllers
     [Route("api/[controller]")]
     public class CompetenceController : Controller
     {
+        private ICompetenceRepository CompetenceRepository { get; set; }
+
+        public CompetenceController(ICompetenceRepository competenceRepository)
+        {
+            CompetenceRepository = competenceRepository;
+        }
+
         // GET api/competence
         [HttpGet]
         public IEnumerable<Competence> GetAllCompetences()
         {
-            //Not implemented
-            return null;
+            return CompetenceRepository.GetAll();
         }
 
-        // GET api/competence/5
+        // GET api/competence/[guid]
         [HttpGet("{id}")]
-        public Competence GetCompetence(int id)
+        public Competence GetCompetence(string id)
         {
-            //Not implemented
-            return null;
+            return CompetenceRepository.Find(id);
         }
 
         // POST api/competence
         [HttpPost]
         public void AddNewCompetence(Competence competence)
         {
+            CompetenceRepository.Add(competence);
         }
 
-        // PUT api/competence/5
-        [HttpPut("{id}")]
-        public void UpdateCompetence(int id, Competence value)
+        // PUT api/competence
+        [HttpPut]
+        public void UpdateCompetence(Competence competence)
         {
+            CompetenceRepository.Update(competence);
         }
 
         // DELETE api/competence/5
         [HttpDelete("{id}")]
-        public void DeleteCompetence(int id)
+        public void DeleteCompetence(string id)
         {
+            CompetenceRepository.Remove(id);
         }
     }
 }

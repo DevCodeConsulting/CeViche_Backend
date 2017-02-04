@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using CeViche_Backend.Models;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,6 +33,7 @@ namespace CeViche_Backend
         {
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
+            services.AddSingleton<ICompetenceRepository, CompetenceRepository>();
 
             services.AddMvc();
         }
