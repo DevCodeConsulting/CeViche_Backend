@@ -8,35 +8,37 @@ namespace CeViche_Backend.Controllers
     [Route("api/[controller]")]
     public class ResumeController : Controller
     {
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        // GET api/resume/5
+        [HttpGet("{consultantId}")]
+        public IEnumerable<string> GetAllResumesForConsultant(int consultantId) //Change to IEnumerable<Resume> when available
         {
-            return new string[] { "value1", "value2" };
+            //Not implemented
+            return null;
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // GET api/resume/5/5
+        [HttpGet("{consultantId}/{resumeId}")]
+        public string GetResume(int consultantId, int resumeId) //Change to Resume when available
         {
-            return "value";
+            //Not implemented
+            return null;
         }
 
-        // POST api/values
+        // POST api/resume
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void AddNewResume([FromBody]string value)//Change to Resume when available
         {
         }
 
-        // PUT api/values/5
+        // PUT api/resume/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public void UpdateResume(int id, [FromBody]string value)//Change to Resume when available
         {
         }
 
-        // DELETE api/values/5
+        // DELETE api/resume/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void DeleteResume(int id)
         {
         }
     }
