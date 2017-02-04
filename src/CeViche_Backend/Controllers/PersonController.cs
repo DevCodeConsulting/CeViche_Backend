@@ -15,7 +15,6 @@ namespace CeViche_Backend.Controllers
             PersonRepository = personRepository;
         }
 
-
         // GET api/person
         [HttpGet]
         public IEnumerable<Person> GetAllPersons()

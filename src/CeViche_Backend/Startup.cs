@@ -36,6 +36,9 @@ namespace CeViche_Backend
             services.AddApplicationInsightsTelemetry(Configuration);
             services.AddSingleton<ICompetenceRepository, CompetenceRepository>();
             services.AddSingleton<IPersonRepository, PersonRepository>();
+            services.AddSingleton<IResumeRepository, ResumeRepository>();
+            //services.AddSingleton<IEducationRepository, EducationRepository>();
+            //services.AddSingleton<IEmployerRepository, EmployerRepository>();
 
             services.AddMvc();
         }

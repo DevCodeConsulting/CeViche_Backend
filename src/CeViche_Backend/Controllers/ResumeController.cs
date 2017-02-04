@@ -1,45 +1,61 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using CeViche_Backend.Models;
+using CeViche_Backend.Repositories;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CeViche_Backend.Controllers
 {
     [Route("api/[controller]")]
     public class ResumeController : Controller
     {
-        // GET api/resume/5
-        [HttpGet("{consultantId}")]
-        public IEnumerable<string> GetAllResumesForConsultant(int consultantId) //Change to IEnumerable<Resume> when available
+        private IResumeRepository ResumeRepository { get; set; }
+
+        public ResumeController(IResumeRepository resumeRepository)
         {
-            //Not implemented
-            return null;
+            ResumeRepository = resumeRepository;
         }
 
-        // GET api/resume/5/5
-        [HttpGet("{consultantId}/{resumeId}")]
-        public string GetResume(int consultantId, int resumeId) //Change to Resume when available
+        // GET api/resume
+        [HttpGet]
+        public IEnumerable<Resume> GetAllResumes()
         {
-            //Not implemented
-            return null;
+            return ResumeRepository.GetAll();
+        }
+
+        // GET api/resume/person/[guid]
+        [HttpGet("/person/{personId}")]
+        public IEnumerable<Resume> GetAllResumesForSpecificPerson(string personId)
+        {
+            return ResumeRepository.GetAll().Where(x => x.Person.Key == personId);
+        }
+
+        // GET api/resume/[guid]
+        [HttpGet("{resumeId}")]
+        public Resume GetResume(string resumeId)
+        {
+            return ResumeRepository.Find(resumeId);
         }
 
         // POST api/resume
         [HttpPost]
-        public void AddNewResume([FromBody]string value)//Change to Resume when available
+        public void AddNewResume(Resume resume)
         {
+            ResumeRepository.Add(resume);
         }
 
-        // PUT api/resume/5
-        [HttpPut("{id}")]
-        public void UpdateResume(int id, [FromBody]string value)//Change to Resume when available
+        // PUT api/resume
+        [HttpPut]
+        public void UpdateResume(Resume resume)
         {
+            ResumeRepository.Update(resume);
         }
 
-        // DELETE api/resume/5
-        [HttpDelete("{id}")]
-        public void DeleteResume(int id)
+        // DELETE api/resume/[guid]
+        [HttpDelete("{resumeId}")]
+        public void DeleteResume(string resumeId)
         {
+            ResumeRepository.Remove(resumeId);
         }
     }
 }
