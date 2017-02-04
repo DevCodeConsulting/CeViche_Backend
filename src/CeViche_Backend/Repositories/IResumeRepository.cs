@@ -10,8 +10,8 @@ namespace CeViche_Backend.Repositories
     {
         void Add(Resume item);
         IEnumerable<Resume> GetAll();
-        Resume Find(string key);
-        Resume Remove(string key);
+        Resume Find(Guid key);
+        Resume Remove(Guid key);
         void Update(Resume resume);
     }
 }

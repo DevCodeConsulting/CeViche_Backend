@@ -2,6 +2,7 @@
 using CeViche_Backend.Models;
 using Microsoft.AspNetCore.Mvc;
 using CeViche_Backend.Repositories;
+using System;
 
 namespace CeViche_Backend.Controllers
 {
@@ -24,7 +25,7 @@ namespace CeViche_Backend.Controllers
 
         // GET api/competence/[guid]
         [HttpGet("{id}")]
-        public Competence GetCompetence(string id)
+        public Competence GetCompetence(Guid id)
         {
             return CompetenceRepository.Find(id);
         }
@@ -45,7 +46,7 @@ namespace CeViche_Backend.Controllers
 
         // DELETE api/competence/[guid]
         [HttpDelete("{id}")]
-        public void DeleteCompetence(string id)
+        public void DeleteCompetence(Guid id)
         {
             CompetenceRepository.Remove(id);
         }

@@ -10,8 +10,8 @@ namespace CeViche_Backend.Repositories
     {
         void Add(Employer employer);
         IEnumerable<Employer> GetAll();
-        Employer Find(string key);
-        Employer Remove(string key);
+        Employer Find(Guid key);
+        Employer Remove(Guid key);
         void Update(Employer employer);
     }
 }

@@ -10,8 +10,8 @@ namespace CeViche_Backend.Repositories
     {
         void Add(Person item);
         IEnumerable<Person> GetAll();
-        Person Find(string key);
-        Person Remove(string key);
+        Person Find(Guid key);
+        Person Remove(Guid key);
         void Update(Person person);
     }
 }

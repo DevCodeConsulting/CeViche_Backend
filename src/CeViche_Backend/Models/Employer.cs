@@ -7,7 +7,7 @@ namespace CeViche_Backend.Models
 {
     public class Employer
     {
-        public string Key { get; set; }
+        public Guid Key { get; set; }
         public string Name { get; set; }
         public List<string> Branch { get; set; }
         public List<string> Technique { get; set; }

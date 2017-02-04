@@ -10,8 +10,8 @@ namespace CeViche_Backend.Repositories
     {
         void Add(Education education);
         IEnumerable<Education> GetAll();
-        Education Find(string key);
-        Education Remove(string key);
+        Education Find(Guid key);
+        Education Remove(Guid key);
         void Update(Education education);
     }
 }

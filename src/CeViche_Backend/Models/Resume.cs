@@ -7,7 +7,7 @@ namespace CeViche_Backend.Models
 {
     public class Resume
     {
-        public string Key { get; set; }
+        public Guid Key { get; set; }
         public Person Person { get; set; }
         public Competence Competence { get; set; }
         public Education Education { get; set; }

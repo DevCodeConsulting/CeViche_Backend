@@ -3,6 +3,7 @@ using System.Linq;
 using CeViche_Backend.Models;
 using CeViche_Backend.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace CeViche_Backend.Controllers
 {
@@ -25,14 +26,14 @@ namespace CeViche_Backend.Controllers
 
         // GET api/resume/person/[guid]
         [HttpGet("/person/{personId}")]
-        public IEnumerable<Resume> GetAllResumesForSpecificPerson(string personId)
+        public IEnumerable<Resume> GetAllResumesForSpecificPerson(Guid personId)
         {
             return ResumeRepository.GetAll().Where(x => x.Person.Key == personId);
         }
 
         // GET api/resume/[guid]
         [HttpGet("{resumeId}")]
-        public Resume GetResume(string resumeId)
+        public Resume GetResume(Guid resumeId)
         {
             return ResumeRepository.Find(resumeId);
         }
@@ -53,7 +54,7 @@ namespace CeViche_Backend.Controllers
 
         // DELETE api/resume/[guid]
         [HttpDelete("{resumeId}")]
-        public void DeleteResume(string resumeId)
+        public void DeleteResume(Guid resumeId)
         {
             ResumeRepository.Remove(resumeId);
         }

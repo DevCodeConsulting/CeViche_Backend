@@ -10,8 +10,8 @@ namespace CeViche_Backend.Repositories
     {
         void Add(Competence item);
         IEnumerable<Competence> GetAll();
-        Competence Find(string key);
-        Competence Remove(string key);
+        Competence Find(Guid key);
+        Competence Remove(Guid key);
         void Update(Competence competence);
     }
 }

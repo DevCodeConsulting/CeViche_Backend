@@ -9,7 +9,7 @@ namespace CeViche_Backend.Repositories
 {
     public class PersonRepository : IPersonRepository
     {
-        private static ConcurrentDictionary<string, Person> _people = new ConcurrentDictionary<string, Person>();
+        private static ConcurrentDictionary<Guid, Person> _people = new ConcurrentDictionary<Guid, Person>();
 
         public PersonRepository()
         {
@@ -18,7 +18,7 @@ namespace CeViche_Backend.Repositories
 
         public void Add(Person person)
         {
-            person.Key = Guid.NewGuid().ToString();
+            person.Key = Guid.NewGuid();
             _people[person.Key] = person;
         }
 
@@ -27,14 +27,14 @@ namespace CeViche_Backend.Repositories
             return _people.Values;
         }
 
-        public Person Find(string key)
+        public Person Find(Guid key)
         {
             Person person;
             _people.TryGetValue(key, out person);
             return person;
         }
 
-        public Person Remove(string key)
+        public Person Remove(Guid key)
         {
             Person person;
             _people.TryRemove(key, out person);

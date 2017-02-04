@@ -9,7 +9,7 @@ namespace CeViche_Backend.Repositories
 {
     public class CompetenceRepository : ICompetenceRepository
     {
-        private static ConcurrentDictionary<string, Competence> _competences = new ConcurrentDictionary<string, Competence>();
+        private static ConcurrentDictionary<Guid, Competence> _competences = new ConcurrentDictionary<Guid, Competence>();
 
         public CompetenceRepository()
         {
@@ -18,7 +18,7 @@ namespace CeViche_Backend.Repositories
 
         public void Add(Competence competence)
         {
-            competence.Key = Guid.NewGuid().ToString();
+            competence.Key = Guid.NewGuid();
             _competences[competence.Key] = competence;
         }
 
@@ -27,14 +27,14 @@ namespace CeViche_Backend.Repositories
             return _competences.Values;
         }
 
-        public Competence Find(string key)
+        public Competence Find(Guid key)
         {
             Competence competence;
             _competences.TryGetValue(key, out competence);
             return competence;
         }
 
-        public Competence Remove(string key)
+        public Competence Remove(Guid key)
         {
             Competence competence;
             _competences.TryRemove(key, out competence);

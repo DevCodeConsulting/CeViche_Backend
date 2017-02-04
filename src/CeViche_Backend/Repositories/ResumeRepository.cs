@@ -9,7 +9,7 @@ namespace CeViche_Backend.Repositories
 {
     public class ResumeRepository : IResumeRepository
     {
-        private static ConcurrentDictionary<string, Resume> _resumes = new ConcurrentDictionary<string, Resume>();
+        private static ConcurrentDictionary<Guid, Resume> _resumes = new ConcurrentDictionary<Guid, Resume>();
 
         public ResumeRepository()
         {
@@ -18,7 +18,7 @@ namespace CeViche_Backend.Repositories
 
         public void Add(Resume resume)
         {
-            resume.Key = Guid.NewGuid().ToString();
+            resume.Key = Guid.NewGuid();
             _resumes[resume.Key] = resume;
         }
 
@@ -27,14 +27,14 @@ namespace CeViche_Backend.Repositories
             return _resumes.Values;
         }
 
-        public Resume Find(string key)
+        public Resume Find(Guid key)
         {
             Resume resume;
             _resumes.TryGetValue(key, out resume);
             return resume;
         }
 
-        public Resume Remove(string key)
+        public Resume Remove(Guid key)
         {
             Resume resume;
             _resumes.TryRemove(key, out resume);
