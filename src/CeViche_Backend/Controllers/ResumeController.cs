@@ -18,7 +18,7 @@ namespace CeViche_Backend.Controllers
 
         // GET api/resume/5/5
         [HttpGet("{consultantId}/{resumeId}")]
-        public string GetAllResumesForConsultant(int consultantId, int resumeId) //Change to Resume when available
+        public string GetResume(int consultantId, int resumeId) //Change to Resume when available
         {
             //Not implemented
             return null;
