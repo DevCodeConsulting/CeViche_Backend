@@ -1,4 +1,5 @@
 ﻿using CeViche_Backend.Models;
+using CeViche_Backend.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
