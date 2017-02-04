@@ -1,42 +1,43 @@
 ﻿using System.Collections.Generic;
+using CeViche_Backend.Models;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CeViche_Backend.Controllers
 {
     [Route("api/[controller]")]
     public class ConsultantController : Controller
     {
-        // GET: api/values
+        // GET api/consultant
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Person> GetAllConsultants()
         {
-            return new string[] { "value1", "value2" };
+            //Not implemented
+            return null;
         }
 
-        // GET api/values/5
+        // GET api/consultant/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Person GetConsultantById(int id)
         {
-            return "value";
+            //Not implemented
+            return null;
         }
 
-        // POST api/values
+        // POST api/consultant
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void AddNewConsultant(Person consultant)
         {
         }
 
-        // PUT api/values/5
+        // PUT api/consultant/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public void UpdateConsultant(int id, Person value)
         {
         }
 
-        // DELETE api/values/5
+        // DELETE api/consultant/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void DeleteConsultant(int id)
         {
         }
     }
