@@ -1,0 +1,18 @@
+Person
+	Name				Text
+	DateOfBirth			Date
+	Summary				Text
+	Branch[]			Text
+Competence
+	Category	Text
+	Name
+	SkillLevel
+Education
+	School
+	Name
+	Degree
+Employers
+	Name
+	Branch[]
+	Technique[]
+	
