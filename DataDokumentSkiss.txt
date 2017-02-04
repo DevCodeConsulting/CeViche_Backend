@@ -4,15 +4,17 @@ Person
 	Summary				Text
 	Branch[]			Text
 Competence
-	Category	Text
-	Name
-	SkillLevel
+	Category			Text
+	Name				Text
+	SkillLevel			Int
 Education
-	School
-	Name
-	Degree
+	Type				Text(School, Certificate, Other)
+	School				Text
+	Name				Text
+	Degree				Text
 Employers
 	Name
 	Branch[]
 	Technique[]
-	
+Language
+	Name[]
