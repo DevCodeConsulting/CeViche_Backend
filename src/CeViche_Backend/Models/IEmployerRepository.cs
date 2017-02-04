@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CeViche_Backend.Models
 {
-    interface IEmployerRepository
+    public interface IEmployerRepository
     {
         void Add(Employer employer);
         IEnumerable<Employer> GetAll();

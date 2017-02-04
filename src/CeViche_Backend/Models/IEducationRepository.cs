@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CeViche_Backend.Models
 {
-    interface IEducationRepository
+    public interface IEducationRepository
     {
         void Add(Education education);
         IEnumerable<Education> GetAll();

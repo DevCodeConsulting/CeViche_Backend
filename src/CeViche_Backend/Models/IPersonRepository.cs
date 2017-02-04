@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CeViche_Backend.Models
 {
-    interface IPersonRepository
+    public interface IPersonRepository
     {
         void Add(Person item);
         IEnumerable<Person> GetAll();
