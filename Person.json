@@ -15,11 +15,11 @@
 		{"name":"KTH"},
 		{"degree":""}
 	],
-	"employer" : {
+	"employer" : [{
 		"name" : "Skandia",
 		"branch" : ["Bank","Finans","Försäkring"],
 		"teqhinque" : ["Mvc","HTML"]
-	},
+	}],
 	"revision" : {
 	"lastUpdate" : "2017-02-04",
 	"updatedBy" : "Jens",
