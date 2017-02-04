@@ -1,0 +1,30 @@
+{
+	"person" : {
+		"name" : "Jens Hoffmann Axén",
+		"dateOfBirth" : "1968-04-27",
+		"summary" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+		"branch" : ["Finans", "Försäkring"]
+	},
+	"competence" : [
+		{"category" : ""},
+		{"name" : ""},
+		{"skillLevel" : "" }
+	],
+	"education" : [
+		{"type":"Högskola"},
+		{"name":"KTH"},
+		{"degree":""}
+	],
+	"employer" : {
+		"name" : "Skandia",
+		"branch" : ["Bank","Finans","Försäkring"],
+		"teqhinque" : ["Mvc","HTML"]
+	},
+	"coverLetter":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+	"revision" : {
+	"lastUpdate" : "2017-02-04",
+	"updatedBy" : "Jens",
+	"created" : "2017-02-04",
+	"createdBy" : "Jens"
+	}
+}
