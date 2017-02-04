@@ -7,38 +7,47 @@ namespace CeViche_Backend.Controllers
     [Route("api/[controller]")]
     public class PersonController : Controller
     {
-        // GET api/person
-        [HttpGet]
-        public IEnumerable<Person> GetAllConsultants()
+        private IPersonRepository PersonRepository { get; set; }
+
+        public PersonController(IPersonRepository personRepository)
         {
-            //Not implemented
-            return null;
+            PersonRepository = personRepository;
         }
 
-        // GET api/person/5
-        [HttpGet("{id}")]
-        public Person GetConsultantById(int id)
+
+        // GET api/person
+        [HttpGet]
+        public IEnumerable<Person> GetAllPersons()
         {
-            //Not implemented
-            return null;
+            return PersonRepository.GetAll();
+        }
+
+        // GET api/person/[guid]
+        [HttpGet("{id}")]
+        public Person GetConsultantById(string id)
+        {
+            return PersonRepository.Find(id);
         }
 
         // POST api/person
         [HttpPost]
-        public void AddNewConsultant(Person consultant)
+        public void AddNewConsultant(Person person)
         {
+            PersonRepository.Add(person);
         }
 
-        // PUT api/person/5
-        [HttpPut("{id}")]
-        public void UpdateConsultant(int id, Person value)
+        // PUT api/person
+        [HttpPut]
+        public void UpdateConsultant(Person person)
         {
+            PersonRepository.Update(person);
         }
 
-        // DELETE api/person/5
+        // DELETE api/person/[guid]
         [HttpDelete("{id}")]
-        public void DeleteConsultant(int id)
+        public void DeleteConsultant(string id)
         {
+            PersonRepository.Remove(id);
         }
     }
 }

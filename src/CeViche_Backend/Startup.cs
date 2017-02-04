@@ -34,6 +34,7 @@ namespace CeViche_Backend
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
             services.AddSingleton<ICompetenceRepository, CompetenceRepository>();
+            services.AddSingleton<IPersonRepository, PersonRepository>();
 
             services.AddMvc();
         }
