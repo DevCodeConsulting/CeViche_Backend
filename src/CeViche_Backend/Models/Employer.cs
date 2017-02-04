@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CeViche_Backend.Models
 {
-    public class Employers
+    public class Employer
     {
         public string Name { get; set; }
         public List<string> Branch { get; set; }
