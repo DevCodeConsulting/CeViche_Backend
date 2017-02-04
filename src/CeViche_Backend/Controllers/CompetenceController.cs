@@ -42,7 +42,7 @@ namespace CeViche_Backend.Controllers
             CompetenceRepository.Update(competence);
         }
 
-        // DELETE api/competence/5
+        // DELETE api/competence/[guid]
         [HttpDelete("{id}")]
         public void DeleteCompetence(string id)
         {
