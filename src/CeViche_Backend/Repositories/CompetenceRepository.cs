@@ -2,14 +2,12 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CeViche_Backend.Repositories
 {
     public class CompetenceRepository : ICompetenceRepository
     {
-        private static ConcurrentDictionary<Guid, Competence> _competences = new ConcurrentDictionary<Guid, Competence>();
+        private static readonly ConcurrentDictionary<Guid, Competence> Competences = new ConcurrentDictionary<Guid, Competence>();
 
         public CompetenceRepository()
         {
@@ -19,31 +17,31 @@ namespace CeViche_Backend.Repositories
         public void Add(Competence competence)
         {
             competence.Key = Guid.NewGuid();
-            _competences[competence.Key] = competence;
+            Competences[competence.Key] = competence;
         }
 
         public IEnumerable<Competence> GetAll()
         {
-            return _competences.Values;
+            return Competences.Values;
         }
 
         public Competence Find(Guid key)
         {
             Competence competence;
-            _competences.TryGetValue(key, out competence);
+            Competences.TryGetValue(key, out competence);
             return competence;
         }
 
         public Competence Remove(Guid key)
         {
             Competence competence;
-            _competences.TryRemove(key, out competence);
+            Competences.TryRemove(key, out competence);
             return competence;
         }
 
         public void Update(Competence competence)
         {
-            _competences[competence.Key] = competence;
+            Competences[competence.Key] = competence;
         }
     }
 }
